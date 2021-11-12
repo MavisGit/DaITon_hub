@@ -5,6 +5,8 @@
 """
 #Подключение базы данных
 #Подключение библиотеки
-import pymongo
+# Создание функции 
+def get_database():
+    import pymongo 
+    
 
-db_client = pymongo 
