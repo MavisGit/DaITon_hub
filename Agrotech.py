@@ -1,12 +1,11 @@
 """
 Программ для проекта Agrotech
 Содержание:
-Подключение MongoBD
+Подключение базы данных
+Логические блоки
+пдкючение анализа фото 
+Блок аботы интерфейса
 """
-#Подключение базы данных
-#Подключение библиотеки
-# Создание функции 
-
     
 """_______________________________________________________________________________________________________"""
 
@@ -22,10 +21,35 @@ def logical_block_1(area_circle, med_seed):
 	else:
 		print(int(num_seeds))
 """_______________________________________________________________________________________________________"""
+# Блок отвечающий за работу анализа фотографии с использование готовой библиотеке Pixellib 
+# Особенноесть окружения: работает на версии Python 3.5-3.7.
+import os
+os.environ["TF_CCP_MIN_LOG_LEVEL"] = "3"
+
+from pixellib.instance import instance_segmentation
+
+
+def object_detection_on_an_image():
+	segment_image = instance_segmentation()
+	segment_image.load_model("C:\Users\Mavis\mask_rcnn_coco.h5")
+    segment_image.segmentimage(
+		image_path="C:\Users\Mavis\Pictures\image2.jpg",
+		show_bboxes=True,
+		output_image_name="C:\Users\Mavis\Pictures\image2.jpg"
+    )
+
+
+def main():
+	object_detection_on_an_image()
+	
+if __name__ == '__main__':
+	main()
+	
+"""_______________________________________________________________________________________________________"""
 # Логический блок 2. Предназначен для логики пользовательского интерфейса, предназначени для сбора 
 # первичных данных
 def logical_block_2():
-    
+    Hello_message = ("
 
 
 """_______________________________________________________________________________________________________"""
@@ -51,4 +75,4 @@ def get_database():
 	dbname = client['product_parametersDB']
 	# создание коллекций 
 	collection_name =dbname["product_parametrs"]
-	"""!!! Добавить блок проверки на содержание информации после получения"""
+	"""!!! Добавить блок проверки на содержание информации"""
