@@ -33,9 +33,12 @@ def object_detection_on_an_image():
 	segment_image = instance_segmentation()
 	segment_image.load_model("C:\Users\Mavis\mask_rcnn_coco.h5")
     segment_image.segmentimage(
-		image_path="C:\Users\Mavis\Pictures\image2.jpg",
+	    # В imade_path указывается путь к изображению для анализа
+	    # Он будет братья из хранилища мобильного устройста и хранится в переменных
+	    # Image_analit_path и Image_output_path
+		image_path="Image_analit_path",
 		show_bboxes=True,
-		output_image_name="C:\Users\Mavis\Pictures\image2.jpg"
+		output_image_name="Image_output_path"
     )
 
 
